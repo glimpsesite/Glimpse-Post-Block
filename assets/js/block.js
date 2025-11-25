@@ -113,11 +113,11 @@ const { createElement, Fragment } = wp.element;
                         checked: attributes.buttonLink,
                         onChange: (value) => setAttributes({ buttonLink: value })
                     }),
-                    attributes.buttonLink && createElement(TextControl, {
+                    attributes.buttonLink ? createElement(TextControl, {
                         label: __('Button Text', 'glimpse-post-block'),
                         value: attributes.buttonText,
                         onChange: (value) => setAttributes({ buttonText: value })
-                    }),
+                    }) : null,
                     createElement(RangeControl, {
                         label: __('Excerpt Length', 'glimpse-post-block'),
                         value: attributes.excerptLength,
