@@ -1,41 +1,5 @@
-```
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-dist/
-build/
-*.log
-*.tmp
-*.swp
+# Examples
 
-# Dependencies
-node_modules/
-vendor/
-composer.lock
-
-# Environment
-.env
-.env.local
-.env.*
-
-# Editors
-.vscode/
-.idea/
-
-# WordPress specific
-wp-content/
-*.sql
-wp-config.php
-wp-config-sample.php
-
-# Backup files
-*~
-*.bak
-*.backup
-
-# OS generated files
-.DS_Store
-Thumbs.db
-```
+# Project specific
+block.json
+readme.txt

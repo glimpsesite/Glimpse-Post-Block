@@ -20,6 +20,10 @@
 			"type": "number",
 			"default": 5
 		},
+		"excerptLength": {
+			"type": "number",
+			"default": 20
+		},
 		"specificPosts": {
 			"type": "array",
 			"default": [],
