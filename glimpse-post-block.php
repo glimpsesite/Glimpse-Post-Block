@@ -111,6 +111,7 @@ final class Glimpse_Post_Block {
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( $this, 'init_plugin' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
+                add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_assets' ) );
  	}
 
 	/**
@@ -157,6 +158,54 @@ final class Glimpse_Post_Block {
 			GLIMPSE_POST_BLOCK_VERSION
 		);
 	}
+	
+	/**
+	 * Enqueue editor assets for the block.
+	 *
+	 * Loads the editor JavaScript file and localizes data for the block controls.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function enqueue_editor_assets() {
+		$script_asset_path = GLIMPSE_POST_BLOCK_PLUGIN_PATH . 'assets/js/block.asset.php';
+		
+		if ( file_exists( $script_asset_path ) ) {
+			$script_asset = require $script_asset_path;
+			$script_url   = GLIMPSE_POST_BLOCK_PLUGIN_URL . 'assets/js/block.js';
+			
+			wp_enqueue_script(
+				'glimpse-post-block-editor',
+				$script_url,
+				$script_asset['dependencies'],
+				$script_asset['version'],
+				true
+			);
+		} else {
+			wp_enqueue_script(
+				'glimpse-post-block-editor',
+				GLIMPSE_POST_BLOCK_PLUGIN_URL . 'assets/js/block.js',
+				array(
+					'wp-blocks',
+					'wp-element',
+					'wp-editor',
+					'wp-components',
+					'wp-i18n',
+					'wp-server-side-render'
+				),
+				GLIMPSE_POST_BLOCK_VERSION,
+				true
+			);
+		}
+		
+		// Localize data for the editor script
+		wp_add_inline_script(
+			'glimpse-post-block-editor',
+			'window.glimpsePostBlock = ' . wp_json_encode( $this->get_editor_data() ) . ';',
+			'before'
+		);
+	}
+
 
 	 
 

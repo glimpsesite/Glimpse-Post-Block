@@ -1,5 +1,3 @@
-# Examples
+(block.json and glimpse-post-block.php are source/config files, no build artifacts, dependencies, or temp files in the changes)
 
-# Project specific
-block.json
-readme.txt
+(empty - no output)
