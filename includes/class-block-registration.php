@@ -80,6 +80,10 @@ class Glimpse_Post_Block_Registration {
 				'type'    => 'number',
 				'default' => 5,
 			),
+                     'excerptLength' => array(
+                             'type'    => 'number',
+                             'default' => 20,
+                     ),
 			'specificPosts' => array(
 				'type'    => 'array',
 				'default' => array(),
@@ -171,7 +175,7 @@ class Glimpse_Post_Block_Registration {
             <div class="glimpse-post-excerpt">
                 <?php
 								$excerpt = ! empty( $post->post_excerpt ) ? $post->post_excerpt : $post->post_content;
-								echo wp_kses_post( wp_trim_words( $excerpt, 20 ) );
+								echo wp_kses_post( wp_trim_words( $excerpt, $attributes['excerptLength'] ) );
 								?>
             </div>
             <?php endif; ?>
