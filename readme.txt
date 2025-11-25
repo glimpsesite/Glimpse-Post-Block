@@ -2,8 +2,8 @@
 Contributors: mohamedtaman
 Donate link: https://yourwebsite.com
 Tags: gutenberg, block, posts, custom posts, display posts
-Requires at least: 5.8
-Tested up to: 6.3
+Requires at least: 6.0
+Tested up to: 6.7
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

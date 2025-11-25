@@ -35,6 +35,5 @@
 	},
 	"editorScript": "file:./assets/js/block.js",
 	"editorStyle": "file:./assets/css/editor.css",
-	"style": "file:./assets/css/style.css",
-	"render": "file:./render.php"
+	"style": "file:./assets/css/style.css"
 }

@@ -8,20 +8,18 @@
  * @since 1.0.0
  */
 
-(function (blocks, element, blockEditor, components, i18n) {
-    'use strict';
-
-    const { __ } = i18n;
-    const { createElement: el, Fragment } = element;
-    const { InspectorControls, useBlockProps } = blockEditor;
-    const {
-        PanelBody,
-        SelectControl,
-        TextControl,
-        ToggleControl,
-        RangeControl,
-        ServerSideRender,
-    } = components;
+import { registerBlockType } from '@wordpress/blocks';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import { 
+    PanelBody, 
+    SelectControl, 
+    TextControl, 
+    ToggleControl, 
+    RangeControl,
+    ServerSideRender 
+} from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+import { Fragment } from '@wordpress/element';
 
     /**
      * Edit component for the Glimpse Post Block.
@@ -150,7 +148,7 @@
     };
 
     // Register the block.
-    blocks.registerBlockType('glimpse-post-block/posts', {
+    registerBlockType('glimpse-post-block/posts', {
         title: __('Glimpse Posts', 'glimpse-post-block'),
         description: __(
             'Display posts with advanced filtering options.',
@@ -217,10 +215,3 @@
         edit: GlimpsePostsBlockEdit,
         save: () => null, // Dynamic block; rendered via PHP.
     });
-})(
-    window.wp.blocks,
-    window.wp.element,
-    window.wp.blockEditor,
-    window.wp.components,
-    window.wp.i18n
-);
