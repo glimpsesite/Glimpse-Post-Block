@@ -1,3 +1,29 @@
-(block.json and glimpse-post-block.php are source/config files, no build artifacts, dependencies, or temp files in the changes)
+```
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
 
-(empty - no output)
+# Dependencies
+node_modules/
+venv/
+.venv/
+.env
+.env.local
+.env.*
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Editors
+.vscode/
+.idea/
+
+# Distribution and build directories
+dist/
+build/
+target/
+```

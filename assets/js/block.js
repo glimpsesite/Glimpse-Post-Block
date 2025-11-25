@@ -8,18 +8,18 @@
  * @since 1.0.0
  */
 
-import { registerBlockType } from '@wordpress/blocks';
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { 
+const { registerBlockType } = wp.blocks;
+const { InspectorControls, useBlockProps } = wp.blockEditor;
+const { 
     PanelBody, 
     SelectControl, 
     TextControl, 
     ToggleControl, 
     RangeControl,
     ServerSideRender 
-} from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
-import { Fragment } from '@wordpress/element';
+} = wp.components;
+const { __ } = wp.i18n;
+const { Fragment } = wp.element;
 
     /**
      * Edit component for the Glimpse Post Block.
