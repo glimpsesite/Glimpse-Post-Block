@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "glimpse-post-block/posts",
+	"title": "Glimpse Posts",
+	"category": "widgets",
+	"description": "Display posts with advanced filtering options.",
+	"textdomain": "glimpse-post-block",
+	"attributes": {
+		"category": {
+			"type": "string",
+			"default": ""
+		},
+		"tags": {
+			"type": "array",
+			"default": [],
+			"items": { "type": "string" }
+		},
+		"numberOfPosts": {
+			"type": "number",
+			"default": 5
+		},
+		"specificPosts": {
+			"type": "array",
+			"default": [],
+			"items": { "type": "string" }
+		},
+		"showTitle": { "type": "boolean", "default": true },
+		"showImage": { "type": "boolean", "default": true },
+		"showExcerpt": { "type": "boolean", "default": true },
+		"titleLink": { "type": "boolean", "default": true },
+		"buttonLink": { "type": "boolean", "default": false },
+		"buttonText": { "type": "string", "default": "Read More" },
+		"className": { "type": "string", "default": "" }
+	},
+	"editorScript": "file:./assets/js/block.js",
+	"editorStyle": "file:./assets/css/editor.css",
+	"style": "file:./assets/css/style.css",
+	"render": "file:./render.php"
+}

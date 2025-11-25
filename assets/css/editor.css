@@ -1,0 +1,31 @@
+/**
+ * Editor styles for the Glimpse Post Block.
+ *
+ * These styles are loaded only in the Gutenberg block editor
+ * to improve the block's appearance and usability during editing.
+ *
+ * @package GlimpsePostBlock
+ * @since 1.0.0
+ */
+
+/* Preview container styling for the block placeholder or fallback */
+.glimpse-block-preview {
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
+/* Disable interactivity in the ServerSideRender preview to avoid confusion */
+.wp-block-glimpse-post-block-posts .glimpse-post-block {
+    pointer-events: none;
+}
+
+/* Improve spacing and readability of block controls in the inspector */
+.components-panel__body .components-base-control {
+    margin-bottom: 1rem;
+}
+
+.components-panel__body .components-base-control:last-child {
+    margin-bottom: 0;
+}
