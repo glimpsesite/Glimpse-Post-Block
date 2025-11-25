@@ -19,7 +19,7 @@ const {
     ServerSideRender 
 } = wp.components;
 const { __ } = wp.i18n;
-const { Fragment } = wp.element;
+const { createElement, Fragment } = wp.element;
 
     /**
      * Edit component for the Glimpse Post Block.
@@ -42,108 +42,99 @@ const { Fragment } = wp.element;
             posts: [],
         };
 
-        return (
-            <Fragment>
-                <InspectorControls>
-                    <PanelBody
-                        title={__('Posts Settings', 'glimpse-post-block')}
-                        initialOpen={true}
-                    >
-                        <SelectControl
-                            label={__('Category', 'glimpse-post-block')}
-                            value={attributes.category}
-                            options={blockData.categories}
-                            onChange={(value) =>
-                                setAttributes({ category: value })
-                            }
-                        />
-                        <SelectControl
-                            label={__('Tags', 'glimpse-post-block')}
-                            value={attributes.tags}
-                            options={blockData.tags}
-                            onChange={(value) =>
-                                setAttributes({ tags: value })
-                            }
-                            multiple
-                        />
-                        <RangeControl
-                            label={__('Number of Posts', 'glimpse-post-block')}
-                            value={attributes.numberOfPosts}
-                            onChange={(value) =>
-                                setAttributes({ numberOfPosts: value })
-                            }
-                            min={1}
-                            max={20}
-                        />
-                        <SelectControl
-                            label={__('Specific Posts', 'glimpse-post-block')}
-                            value={attributes.specificPosts}
-                            options={blockData.posts}
-                            onChange={(value) =>
-                                setAttributes({ specificPosts: value })
-                            }
-                            multiple
-                        />
-                    </PanelBody>
-
-                    <PanelBody
-                        title={__('Display Options', 'glimpse-post-block')}
-                        initialOpen={false}
-                    >
-                        <ToggleControl
-                            label={__('Show Title', 'glimpse-post-block')}
-                            checked={attributes.showTitle}
-                            onChange={(value) =>
-                                setAttributes({ showTitle: value })
-                            }
-                        />
-                        <ToggleControl
-                            label={__('Show Featured Image', 'glimpse-post-block')}
-                            checked={attributes.showImage}
-                            onChange={(value) =>
-                                setAttributes({ showImage: value })
-                            }
-                        />
-                        <ToggleControl
-                            label={__('Show Excerpt', 'glimpse-post-block')}
-                            checked={attributes.showExcerpt}
-                            onChange={(value) =>
-                                setAttributes({ showExcerpt: value })
-                            }
-                        />
-                        <ToggleControl
-                            label={__('Link on Title', 'glimpse-post-block')}
-                            checked={attributes.titleLink}
-                            onChange={(value) =>
-                                setAttributes({ titleLink: value })
-                            }
-                        />
-                        <ToggleControl
-                            label={__('Show Read More Button', 'glimpse-post-block')}
-                            checked={attributes.buttonLink}
-                            onChange={(value) =>
-                                setAttributes({ buttonLink: value })
-                            }
-                        />
-                        {attributes.buttonLink && (
-                            <TextControl
-                                label={__('Button Text', 'glimpse-post-block')}
-                                value={attributes.buttonText}
-                                onChange={(value) =>
-                                    setAttributes({ buttonText: value })
-                                }
-                            />
-                        )}
-                    </PanelBody>
-                </InspectorControls>
-
-                <div {...blockProps}>
-                    <ServerSideRender
-                        block="glimpse-post-block/posts"
-                        attributes={attributes}
-                    />
-                </div>
-            </Fragment>
+        return createElement(
+            Fragment,
+            null,
+            createElement(
+                InspectorControls,
+                null,
+                createElement(
+                    PanelBody,
+                    {
+                        title: __('Posts Settings', 'glimpse-post-block'),
+                        initialOpen: true
+                    },
+                    createElement(SelectControl, {
+                        label: __('Category', 'glimpse-post-block'),
+                        value: attributes.category,
+                        options: blockData.categories,
+                        onChange: (value) => setAttributes({ category: value })
+                    }),
+                    createElement(SelectControl, {
+                        label: __('Tags', 'glimpse-post-block'),
+                        value: attributes.tags,
+                        options: blockData.tags,
+                        onChange: (value) => setAttributes({ tags: value }),
+                        multiple: true
+                    }),
+                    createElement(RangeControl, {
+                        label: __('Number of Posts', 'glimpse-post-block'),
+                        value: attributes.numberOfPosts,
+                        onChange: (value) => setAttributes({ numberOfPosts: value }),
+                        min: 1,
+                        max: 20
+                    }),
+                    createElement(SelectControl, {
+                        label: __('Specific Posts', 'glimpse-post-block'),
+                        value: attributes.specificPosts,
+                        options: blockData.posts,
+                        onChange: (value) => setAttributes({ specificPosts: value }),
+                        multiple: true
+                    })
+                ),
+                createElement(
+                    PanelBody,
+                    {
+                        title: __('Display Options', 'glimpse-post-block'),
+                        initialOpen: false
+                    },
+                    createElement(ToggleControl, {
+                        label: __('Show Title', 'glimpse-post-block'),
+                        checked: attributes.showTitle,
+                        onChange: (value) => setAttributes({ showTitle: value })
+                    }),
+                    createElement(ToggleControl, {
+                        label: __('Show Featured Image', 'glimpse-post-block'),
+                        checked: attributes.showImage,
+                        onChange: (value) => setAttributes({ showImage: value })
+                    }),
+                    createElement(ToggleControl, {
+                        label: __('Show Excerpt', 'glimpse-post-block'),
+                        checked: attributes.showExcerpt,
+                        onChange: (value) => setAttributes({ showExcerpt: value })
+                    }),
+                    createElement(ToggleControl, {
+                        label: __('Link on Title', 'glimpse-post-block'),
+                        checked: attributes.titleLink,
+                        onChange: (value) => setAttributes({ titleLink: value })
+                    }),
+                    createElement(ToggleControl, {
+                        label: __('Show Read More Button', 'glimpse-post-block'),
+                        checked: attributes.buttonLink,
+                        onChange: (value) => setAttributes({ buttonLink: value })
+                    }),
+                    attributes.buttonLink && createElement(TextControl, {
+                        label: __('Button Text', 'glimpse-post-block'),
+                        value: attributes.buttonText,
+                        onChange: (value) => setAttributes({ buttonText: value })
+                    }),
+                    createElement(RangeControl, {
+                        label: __('Excerpt Length', 'glimpse-post-block'),
+                        value: attributes.excerptLength,
+                        onChange: (value) => setAttributes({ excerptLength: value }),
+                        min: 10,
+                        max: 100
+                    })
+                )
+            ),
+            createElement(
+                'div',
+                blockProps,
+                createElement(ServerSideRender, {
+                    block: 'glimpse-post-block/posts',
+                    attributes: attributes
+                })
+            )
         );
     };
 
@@ -175,6 +166,10 @@ const { Fragment } = wp.element;
             numberOfPosts: {
                 type: 'number',
                 default: 5,
+            },
+            excerptLength: {
+                type: 'number',
+                default: 20,
             },
             specificPosts: {
                 type: 'array',
