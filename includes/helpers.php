@@ -32,15 +32,15 @@ function glimpse_get_categories() {
 
 	$options = array(
 		array(
-			'label' => __( 'All Categories', 'glimpse-post-block' ),
-			'value' => '',
+			'name' => __( 'Select Category', 'glimpse-post-block' ),
+			'id' => '',
 		),
 	);
 
 	foreach ( $categories as $category ) {
 		$options[] = array(
-			'label' => $category->name,
-			'value' => (string) $category->term_id,
+			'name' => $category->name,
+			'id' => (string) $category->term_id,
 		);
 	}
 
@@ -62,12 +62,17 @@ function glimpse_get_tags() {
 		)
 	);
 
-	$options = array();
+	$options = array(
+		array(
+			'name' => __( 'Select Tags', 'glimpse-post-block' ),
+			'id' => '',
+		),
+	);
 
 	foreach ( $tags as $tag ) {
 		$options[] = array(
-			'label' => $tag->name,
-			'value' => (string) $tag->term_id,
+			'name' => $tag->name,
+			'id' => (string) $tag->term_id,
 		);
 	}
 
@@ -91,12 +96,17 @@ function glimpse_get_posts_list() {
 		)
 	);
 
-	$options = array();
+	$options = array(
+		array(
+			'title' => __( 'Select Specific Posts', 'glimpse-post-block' ),
+			'id' => '',
+		),
+	);
 
 	foreach ( $posts as $post ) {
 		$options[] = array(
-			'label' => $post->post_title,
-			'value' => (string) $post->ID,
+			'title' => $post->post_title,
+			'id' => (string) $post->ID,
 		);
 	}
 
