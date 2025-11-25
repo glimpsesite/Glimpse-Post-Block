@@ -6,6 +6,11 @@
 	"category": "widgets",
 	"description": "Display posts with advanced filtering options.",
 	"textdomain": "glimpse-post-block",
+	"supports": {
+		"html": false,
+		"className": true,
+		"align": true
+	},
 	"attributes": {
 		"category": {
 			"type": "string",
