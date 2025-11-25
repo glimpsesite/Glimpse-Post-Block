@@ -109,7 +109,7 @@ class Glimpse_Post_Block_Registration {
 			),
 			'buttonText'    => array(
 				'type'    => 'string',
-				'default' => __( 'Read More', 'glimpse-post-block' ),
+				'default' => esc_html__( 'Read More', 'glimpse-post-block' ),
 			),
 			'className'     => array(
 				'type'    => 'string',
